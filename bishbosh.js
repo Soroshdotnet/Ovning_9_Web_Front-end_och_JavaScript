@@ -1,6 +1,3 @@
-
-
-
 // Bish Bosh Bish-Bosh
 
 // showMessage("HEEEEEEEJJJ");
@@ -14,66 +11,81 @@ const output = document.querySelector('#output')
 
 //---------- Variabler -----------
 
-let bish = 'Bish';
-let bosh = 'Bosh';
-let bibo = 'Bish-Bosh';
+let bish = '"Bish"';
+let bosh = '"Bosh"';
+let bibo = '"Bish-Bosh"';
 
 let loopTalVar = 100;
 let divisionsTal1Var = 3;
 let divisionsTal2Var = 4;
 
+let test = document.getElementById('test');
 function showMessage(message) {
-    document.getElementById('test').innerHTML += message;
+    test.innerHTML += message;
     /* document.getElementById('test2').innerHTML = message; */
 }
-
-// --------  BISHBOSH ON CARD --------
-function bishBosh() {
-
-    for (i = 0; i <= loopTalVar; i++) {
-        if (i % divisionsTal1Var == 0)
-            showMessage(bish + ' ');
-        else if (i % divisionsTal2Var == 0)
-            showMessage(bosh + ' ');
-        else if (i % divisionsTal1Var == 0 && i % divisionsTal2Var === 0)
-            showMessage(bibo + ' ');
-        showMessage(i + ' ');
-    }
-}
-bishBosh();
-
 
 
 
 // ------ LÄS ANVÄNDARE ----------
+// form.addEventListener('submit', (e) => {
+// e.preventDefault();
 
-function bishBosh2() {
+// output.innerHTML += `<p>${e.target[0].value}</p>`
+// e.target.reset(); //eller form.reset(); återställer fält 
+// })
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    output.innerHTML = '';
 
     let loopTalVar = document.getElementById("loopTal").value
     let divisionsTal1Var = document.getElementById("divisionsTal1").value
     let divisionsTal2Var = document.getElementById("divisionsTal2").value
 
-
-    for (i = 0; i <= loopTalVar; i++) {
-        if (i % divisionsTal1Var == 0)
-            showMessage(bish + ' ');
+  let res = []; 
+    for (i = 1; i <= loopTalVar; i++) {
+        if (i % divisionsTal1Var == 0 && i % divisionsTal2Var === 0)
+            res.push(bibo + ' ');
+        else if (i % divisionsTal1Var == 0)
+            res.push(bish + ' ');
         else if (i % divisionsTal2Var == 0)
-            showMessage(bosh + ' ');
-        else if (i % divisionsTal1Var == 0 && i % divisionsTal2Var === 0)
-            showMessage(bibo + ' ');
-        showMessage(i + ' ');
+            res.push(bosh + ' ');
+            else
+        res.push(i + ' ');
     }
 
-    form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    output.innerHTML += res.map(n => `<span>${n}</span>`);
+    // test.innerHTML = res;
 
-    output.innerHTML += `<p>${e.target[0].value}</p>`
-    e.target.reset(); //eller form.reset(); återställer fält 
-})
-
+    e.target.reset();
     
+});
+
+
+// --------  BISHBOSH ON CARD --------
+function bishBosh() {
+
+    let res = []; 
+    for (i = 1; i <= loopTalVar; i++) {
+        if (i % divisionsTal1Var == 0 && i % divisionsTal2Var === 0)
+            res.push(bibo + ' ');
+        else if (i % divisionsTal1Var == 0)
+            res.push(bish + ' ');
+        else if (i % divisionsTal2Var == 0)
+            res.push(bosh + ' ');
+            else
+        res.push(i + ' ');
+    }
+
+    test.innerHTML += res.map(n => `<span>${n}</span>`);
+    // test.innerHTML = res;
+
+    e.target.reset();
 }
-bishBosh2();
+bishBosh();
+
+
 
 
 
