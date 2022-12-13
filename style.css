@@ -1,4 +1,9 @@
 .focus {
-    outline: 5px solid red;
-    font-size: larger;
+    outline: 55px solid rgb(4, 242, 0);
+    /* font-size: larger; */
+}
+
+.blur {
+    outline: 55px solid red;
+    /* font-size: larger; */
 }
