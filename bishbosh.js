@@ -47,28 +47,57 @@ bishBosh();
 
 // ------ LÄS ANVÄNDARE ----------
 
-form['loopTal'].addEventListener('change', (e) => {
-    console.log(e.target(loopTalVar).value);
-})
-form['divisionsTal1'].addEventListener('change', (e) => {
-    console.log(e.target(divisionsTal1Var).value);
-})
-form['divisionsTal2'].addEventListener('change', (e) => {
-    console.log(e.target(divisionsTal2Var).value);
-})
+function bishBosh2() {
 
-form.addEventListener('submit', (e) => {
+    let loopTalVar = document.getElementById("loopTal").value
+    let divisionsTal1Var = document.getElementById("divisionsTal1").value
+    let divisionsTal2Var = document.getElementById("divisionsTal2").value
+
+
+    for (i = 0; i <= loopTalVar; i++) {
+        if (i % divisionsTal1Var == 0)
+            showMessage(bish + ' ');
+        else if (i % divisionsTal2Var == 0)
+            showMessage(bosh + ' ');
+        else if (i % divisionsTal1Var == 0 && i % divisionsTal2Var === 0)
+            showMessage(bibo + ' ');
+        showMessage(i + ' ');
+    }
+
+    form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     output.innerHTML += `<p>${e.target[0].value}</p>`
     e.target.reset(); //eller form.reset(); återställer fält 
 })
 
+    
+}
+bishBosh2();
 
 
 
+
+// form['loopTal'].addEventListener('change', (e) => {
+//     console.log(e.target(loopTalVar).value);
+// })
+// form['divisionsTal1'].addEventListener('change', (e) => {
+//     console.log(e.target(divisionsTal1Var).value);
+// })
+// form['divisionsTal2'].addEventListener('change', (e) => {
+//     console.log(e.target(divisionsTal2Var).value);
+// })
+
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+
+//     output.innerHTML += `<p>${e.target[0].value}</p>`
+//     e.target.reset(); //eller form.reset(); återställer fält 
+// })
 
 // ------ END LÄS ANVÄNDARE ----------
+
+
 
 // form['loopTal'].addEventListener('focus', function(e){
 //     console.log('focus');
