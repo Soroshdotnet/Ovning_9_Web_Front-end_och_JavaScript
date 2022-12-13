@@ -19,11 +19,11 @@ let loopTalVar = 100;
 let divisionsTal1Var = 3;
 let divisionsTal2Var = 4;
 
-let test = document.getElementById('test');
-function showMessage(message) {
-    test.innerHTML += message;
-    /* document.getElementById('test2').innerHTML = message; */
-}
+// let test = document.getElementById('test');
+// function showMessage(message) {
+//     test.innerHTML += message;
+//     /* document.getElementById('test2').innerHTML = message; */
+// }
 
 
 
@@ -63,7 +63,16 @@ form.addEventListener('submit', function(e) {
 });
 
 
-// --------  BISHBOSH ON CARD --------
+
+
+
+
+
+
+
+
+
+// --------  BISHBOSH EXAMPLE--------
 function bishBosh() {
 
     let res = []; 
